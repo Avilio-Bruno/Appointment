@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<a href="/addPatient" class="btn btn-info">Добавить пациента</a>
+{% endblock %}
+
+{% block body %}
+
+<section class="hero1">
+
+  <div class="container mt-5">
+
+    {% for elem in addPatient %}
+    <div class="alert alert-info">
+      <h2>Пациент: {{ elem.fioPatient }} </h2>
+      <form method="post" action="/deletePatient">
+        <input type="hidden" name="patient_id" value="{{ elem.id }}">
+        <button type="submit" class="btn btn-danger">Удалить</button>
+      </form>
+    </div>
+    {% endfor %}
+
+  </div>
+</section>
+
+{% endblock %}

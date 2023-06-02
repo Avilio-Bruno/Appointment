@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ sch.text1 }}
+{% endblock %}
+{% block body %}
+<section class="hero1">
+  <div class="container mt-5">
+    <h1>{{ sch.text1 }}</h1>
+    <div class="alert alert-info">
+      <p>Лечащий врач {{ sch.fioDoctor }}</p>
+      <p>ФИО пациента {{ sch.fioPatient }}</p>
+      <p><b>Дата заполнения: {{ sch.date.date() }}</b></p>
+      <a href="/index/{{ sch.id }}/delete" class="btn btn-danger">УДАЛИТЬ</a>
+      <a href="/index/{{ sch.id }}/upd" class="btn btn-success">ИЗМЕНИТЬ</a>
+    </div>
+
+  </div>
+</section>
+{% endblock %}

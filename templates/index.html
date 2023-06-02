@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Главная страница поликлиники "Здоровье"
+{% endblock %}
+{% block body %}
+<section class="hero">
+  <div class="container mt-5">
+    <h1>Активные записи на прием</h1>
+
+    {% for elem in schedule %}
+    <div class="alert alert-info">
+      <h2>{{ elem.text1 }}</h2>
+      <p>Врач: {{ elem.fioDoctor }}</p>
+      <p>Пациент: {{ elem.fioPatient }}</p>
+      <p><b>Дата записи: {{ elem.date.date() }}</b></p>
+      <a href="/index/{{ elem.id }}" class="btn btn-info">ИЗМЕНИТЬ ЗАПИСЬ</a>
+
+    </div>
+    {% endfor %}
+
+  </div>
+</section>
+{% endblock %}
+{% block service %}
+<section class="services">
+  <div class="service">
+    <h2><a href="/about">Добавление записи</a></h2>
+    <p>Просмотр и управление записью</p>
+  </div>
+  <div class="service">
+    <h2><a href="/addPatient">Добавление пациентов</a></h2>
+    <p>Просмотр и управление информацией о пациентах</p>
+  </div>
+  <div class="service">
+    <h2><a href="/addDoctor">Добавление врачей</a></h2>
+    <p>Просмотр и управление информацией о врачах</p>
+  </div>
+
+</section>
+{% endblock %}

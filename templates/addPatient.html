@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Формы для добавления записей
+{% endblock %}
+
+{% block body %}
+<section class="hero1">
+    <div class="container mt-5">
+        <h1>Добавление или удаление пациентов</h1>
+        <form method="post">
+            <input type="text" name="fioPatient" id="fioPatient" class="form-control" placeholder="Введите ФИО пациента"><br>
+            <input type="submit" class="btn btn-success" value="Добавить нового пациента">
+        </form>
+    </div>
+</section>
+{% endblock %}

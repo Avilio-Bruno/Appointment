@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<style>
+  p {
+    margin-top: 40px;
+  }
+</style>
+<section class="hero1">
+    <div class="container mt-5">
+        <h1>Редактирование записи</h1>
+        <form method="post">
+            <p>Выберите ФИО врача:</p>
+            {% for doctor in doctors %}
+            <input type="radio" id="{{ doctor.fioDoctor }}" name="fioDoctor" value="{{ doctor.fioDoctor }}" {% if doctor.fioDoctor == sch.fioDoctor %}checked{% endif %}>
+            <label for="{{ doctor.fioDoctor }}">{{ doctor.fioDoctor }}</label><br>
+            {% endfor %}
+
+            <p>Выберите ФИО пациента:</p>
+            {% for patient in patients %}
+            <input type="radio" id="{{ patient.fioPatient }}" name="fioPatient" value="{{ patient.fioPatient }}" {% if patient.fioPatient == sch.fioPatient %}checked{% endif %}>
+            <label for="{{ patient.fioPatient }}">{{ patient.fioPatient }}</label><br>
+            {% endfor %}
+            <p>Введите новую дату и время записи(Вручную)</p>
+            <input type="text" name="text1" id="text1" class="form-control" value="{{ sch.text1 }}" placeholder="Введите новую дату и время записи(Вручную)"><br>
+            <input type="submit" class="btn btn-success" value="Изменить запись">
+        </form>
+    </div>
+</section>
+{% endblock %}

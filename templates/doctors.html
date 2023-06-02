@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<a href="/addDoctor" class="btn btn-info">Добавить врача</a>
+{% endblock %}
+
+{% block body %}
+<section class="hero1">
+  <div class="container mt-5">
+    {% for elem in addDoctor %}
+    <div class="alert alert-info">
+      <h2>Специальность: {{ elem.specialization }}</h2>
+      <p>ФИО: {{ elem.fioDoctor }}</p>
+      <form action="{{ url_for('delete_doctor') }}" method="post">
+        <input type="hidden" name="doctor_id" value="{{ elem.id }}">
+        <button type="submit" class="btn btn-danger">Удалить</button>
+      </form>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

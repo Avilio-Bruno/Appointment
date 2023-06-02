@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Формы для добавления записей
+{% endblock %}
+
+{% block body %}
+<style>
+  p {
+    margin-top: 40px;
+  }
+</style>
+<section class="hero1">
+    <div class="container mt-5">
+        <h1>Запись на прием</h1>
+        <form method="post">
+            <p>Выберите ФИО врача:</p>
+            {% for elem in doctors %}
+            <input type="radio" id="{{ elem.fioDoctor }}" name="fioDoctor" value="{{ elem.fioDoctor }}">
+            <label for="{{ elem.fioDoctor }}">{{ elem.fioDoctor }}</label><br>
+            {% endfor %}
+
+            <p>Выберите ФИО пациента:</p>
+            {% for elem in patients %}
+            <input type="radio" id="{{ elem.fioPatient }}" name="fioPatient" value="{{ elem.fioPatient }}">
+            <label for="{{ elem.fioPatient }}">{{ elem.fioPatient }}</label><br>
+            {% endfor %}
+            <p>Введите Дату и Время записи(Вручную):</p>
+            <input type="text" name="text1" id="text1" class="form-control" placeholder="Например: 25.06.2023 15:30"><br>
+
+            <input type="submit" class="btn btn-success" value="Создать запись">
+        </form>
+    </div>
+</section>
+{% endblock %}
